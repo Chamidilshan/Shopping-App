@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopping_app/screens/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,30 +15,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'ODEL',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                  'assets/images/logo-big.png',
-                width: 200.0,
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Text(
-                'ODEL Shopping App',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40.0
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      home: LandingPage()
     );
   }
 }
