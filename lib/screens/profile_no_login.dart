@@ -31,10 +31,44 @@ class ProdileNoLoginPage extends StatelessWidget {
           color: Colors.white,
           child: Column(
             children: [
-              ProfileItem(),
-              ProfileItem(),
-              ProfileItem(),
-              ProfileItem(),
+              ProfileItem(
+                title: 'Orders',
+                subtitle: 'Check your order status',
+                assetName: 'assets/images/orders.png',
+                isLast: false,
+              ),
+              ProfileItem(
+                title: 'Help Center',
+                subtitle: 'Help regarding your recent purchase',
+                assetName: 'assets/images/help-desk.png',
+                isLast: false,
+              ),
+              ProfileItem(
+                title: 'Wishlist',
+                subtitle: 'Your most loved style',
+                assetName: 'assets/images/wishlist.png',
+                isLast: true,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 20.0,
+        ),
+        Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              ProfileItem(
+                title: 'Scan for coupon',
+                assetName: 'assets/images/qr-code.png',
+                isLast: false,
+              ),
+              ProfileItem(
+                title: 'Refer & Earn',
+                assetName: 'assets/images/revenue.png',
+                isLast: true,
+              ),
             ],
           ),
         )
