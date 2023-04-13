@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/constants/constants.dart';
+import 'package:shopping_app/widgets/profile_content.dart';
 import 'package:shopping_app/widgets/profile_item.dart';
 
 class ProdileNoLoginPage extends StatelessWidget {
@@ -11,15 +12,48 @@ class ProdileNoLoginPage extends StatelessWidget {
       children: [
         Container(
           height: 180.0,
-          child: Column(
+          child: Stack(
             children: [
-              Container(
-                height: 110.0,
-                color: bgNewColor,
+              Column(
+                children: [
+                  Container(
+                    height: 110.0,
+                    color: bgNewColor,
+                  ),
+                  Container(
+                    height: 70.0,
+                    color: Colors.white,
+                  )
+                ],
               ),
-              Container(
-                height: 70.0,
-                color: Colors.white,
+              Positioned(
+                bottom: 20.0,
+                left: 20.0,
+                child: Container(
+                  height: 132.0,
+                  width: 132.0,
+                  child: Container(
+                    child: Card(
+                      child: Image.asset('assets/images/profile.png', color: bgNewColor,),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 20.0,
+                left: 170.0,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(0),
+                    backgroundColor: MaterialStateProperty.all(Colors.pinkAccent)
+                  ),
+                    onPressed: () {},
+                    child: Container(
+                      height: 40.0,
+                      width: MediaQuery.of(context).size.width -210,
+                        child: Center(child: Text('Log In / Sign Up'))
+                    )
+                ),
               )
             ],
           ),
@@ -71,6 +105,20 @@ class ProdileNoLoginPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        SizedBox(
+          height: 22.0,
+        ),
+        FooterContent(),
+        SizedBox(
+          height: 28.0,
+        ),
+        Text(
+          'APP VERSION 0.0.1',
+          style: Theme.of(context).textTheme.overline,
+        ),
+        SizedBox(
+          height: 60.0,
         )
       ],
     );

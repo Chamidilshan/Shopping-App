@@ -24,7 +24,9 @@ class _ProfilePageState extends State<ProfilePage> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
-      body: ProdileNoLoginPage(),
+      body: SingleChildScrollView(
+          child: ProdileNoLoginPage()
+      ),
     );
   }
 }
