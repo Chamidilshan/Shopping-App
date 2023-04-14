@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shopping_app/constants/constants.dart';
 import 'package:shopping_app/widgets/solid_button.dart';
 
@@ -18,11 +19,11 @@ class LoginBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/images/logo-big.png', width: 45.0,),
-              IconButton(onPressed: () {}, icon: Icon(Icons.clear, size: 30.0,))
+              IconButton(onPressed: () {Get.back();}, icon: Icon(Icons.clear, size: 30.0,))
             ],
           ),
           SizedBox(
-            height: 20.0,
+            height: 28.0,
           ),
           RichText(text: TextSpan(
             children: [
@@ -42,7 +43,7 @@ class LoginBottomSheet extends StatelessWidget {
                   )
               ),
               TextSpan(
-                  text: 'SignUp',
+                  text: 'Signup',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 18.0,
@@ -74,7 +75,7 @@ class LoginBottomSheet extends StatelessWidget {
                 ),
                 labelText: 'Mobile Number',
                 labelStyle:  TextStyle(
-                    color: Colors.black,
+                    color: Colors.black54,
                     fontSize: 12.0,
                 ),
                 enabledBorder: OutlineInputBorder(borderSide: BorderSide(
@@ -89,7 +90,7 @@ class LoginBottomSheet extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20.0,
+            height: 32.0,
           ),
           RichText(text: TextSpan(
               children: [
@@ -116,7 +117,7 @@ class LoginBottomSheet extends StatelessWidget {
                     )
                 ),
                 TextSpan(
-                    text: 'Privacy & Policy',
+                    text: ' Privacy & Policy',
                     style: TextStyle(
                         color: Colors.pinkAccent,
                         fontSize: 12.0,
@@ -128,7 +129,7 @@ class LoginBottomSheet extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          SolidButton(text: 'CONTINUE'),
+          SolidButton(text: 'CONTINUE', minusWidth: 0, onPressed: () {  },),
           SizedBox(
             height: 20.0,
           ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopping_app/widgets/login_bottomsheet.dart';
 
 class TextNewButton extends StatelessWidget {
   const TextNewButton({Key? key, required this.text}) : super(key: key);

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shopping_app/constants/constants.dart';
 import 'package:shopping_app/widgets/profile_content.dart';
 import 'package:shopping_app/widgets/profile_item.dart';
+import 'package:shopping_app/widgets/solid_button.dart';
+import 'package:shopping_app/widgets/login_bottomsheet.dart';
 
 class ProdileNoLoginPage extends StatelessWidget {
   const ProdileNoLoginPage({Key? key}) : super(key: key);
@@ -42,18 +45,10 @@ class ProdileNoLoginPage extends StatelessWidget {
               Positioned(
                 bottom: 20.0,
                 left: 170.0,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    elevation: MaterialStateProperty.all(0),
-                    backgroundColor: MaterialStateProperty.all(Colors.pinkAccent)
-                  ),
-                    onPressed: () {},
-                    child: Container(
-                      height: 40.0,
-                      width: MediaQuery.of(context).size.width -210,
-                        child: Center(child: Text('Log In / Sign Up'))
-                    )
-                ),
+                child: SolidButton(
+                  text: 'LOG IN/SIGN UP',
+                  minusWidth: 210, onPressed: () { Get.bottomSheet(LoginBottomSheet());},
+                )
               )
             ],
           ),
