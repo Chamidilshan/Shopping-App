@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopping_app/constants/constants.dart';
+import 'package:shopping_app/controllers/login_controller.dart';
 import 'package:shopping_app/widgets/solid_button.dart';
 
 class LoginBottomSheet extends StatelessWidget {
-  const LoginBottomSheet({Key? key}) : super(key: key);
+   LoginBottomSheet({Key? key}) : super(key: key);
+  var loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,7 @@ class LoginBottomSheet extends StatelessWidget {
           Container(
             height: 40.0,
             child: TextField(
+              controller: loginController.loginEditingController,
               keyboardType: TextInputType.number,
               style: TextStyle(
                 color: Colors.black,
@@ -129,7 +132,7 @@ class LoginBottomSheet extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          SolidButton(text: 'CONTINUE', minusWidth: 0, onPressed: () {  },),
+          SolidButton(text: 'CONTINUE', minusWidth: 0, onPressed: loginController.login),
           SizedBox(
             height: 20.0,
           ),

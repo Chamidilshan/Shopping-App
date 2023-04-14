@@ -7,8 +7,9 @@ class NetworkHandler{
   static final client = http.Client();
   static final storage = FlutterSecureStorage();
 
-  static void post(var body, String endpoint) async{
-    var response = await client.post(buildUrl(endpoint), body: body);
+  static Future<String> post(var body, String endpoint) async{
+    var response = await client.post(buildUrl(endpoint), body: body, headers: {"Content-type":"application/json"});
+    return response.body;
   }
 
   static Uri buildUrl(String endpoint){
