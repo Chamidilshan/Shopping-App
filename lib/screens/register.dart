@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/constants/constants.dart';
+import 'package:shopping_app/controllers/login_controller.dart';
 import 'package:shopping_app/widgets/gender_button.dart';
 import 'package:shopping_app/widgets/solid_button.dart';
 import 'package:shopping_app/widgets/text_form_field.dart';
+import 'package:get/get.dart';
+import 'package:shopping_app/controllers/register_controller.dart';
 
 class Register extends StatelessWidget {
    Register({Key? key}) : super(key: key);
   final formKey = GlobalKey<FormState>();
+  var loginController = Get.find<LoginController>();
+   var registerController = Get.put(RegisterController());
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -50,7 +55,9 @@ class Register extends StatelessWidget {
                         SizedBox(
                           height: 4.0,
                         ),
-                        Text('123456')
+                        Text(
+                          loginController.loginEditingController.text
+                        )
                       ],
                     ),
                     CircleAvatar(
@@ -65,6 +72,7 @@ class Register extends StatelessWidget {
                 ),
                 TextFormFieldNew(
                 labelText: 'Create Password',
+                textEditingController: registerController.passwordTextController,
                 validator: (value) {
                   print(value);
                   if(value!.isEmpty){
@@ -77,18 +85,23 @@ class Register extends StatelessWidget {
                   height: 10.0,
                 ),
                 TextFormFieldNew(
+                  textEditingController: registerController.fullNameTextController,
                     labelText: 'Full Name (Optional)',
                 ),
                 SizedBox(
                   height: 10.0,
                 ),
                 TextFormFieldNew(
+                  textEditingController: registerController.emailTextController,
                   labelText: 'Email (Optional)',
                 ),
                 SizedBox(
                   height: 10.0,
                 ),
-                GenderButton(),
+                Obx(() => GenderButton(
+                  onGenderTap: onGenderTap,
+                  genderValue: registerController.gender.value,
+                ),),
                 SizedBox(
                   height: 10.0,
                 ),
@@ -97,6 +110,7 @@ class Register extends StatelessWidget {
                 ),
                 TextFormFieldNew(
                   labelText: 'Alternative Mobile Number',
+                    textEditingController: registerController.mobileNumberTextController,
                   prefixIcon: Padding(
                     padding: const EdgeInsets.only(top: 14.0, left: 10.0),
                     child: Text(
@@ -118,6 +132,7 @@ class Register extends StatelessWidget {
                   height: 10.0,
                 ),
                 TextFormFieldNew(
+                  textEditingController: registerController.hintTextController,
                   labelText: 'Hint Name',
                 ),
                 SizedBox(
@@ -136,4 +151,9 @@ class Register extends StatelessWidget {
       ),
     );
   }
+   void onGenderTap(String value){
+     registerController.gender.value = value;
+     print(value);
+   }
 }
+

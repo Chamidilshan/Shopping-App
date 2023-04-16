@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/constants/constants.dart';
 
 class GenderButton extends StatelessWidget {
-  const GenderButton({Key? key}) : super(key: key);
+  const GenderButton({Key? key, required this.onGenderTap, required this.genderValue}) : super(key: key);
+  final Function(String value) onGenderTap;
+  final String genderValue;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,14 @@ class GenderButton extends StatelessWidget {
         children: [
           Flexible(
             flex: 1,
-            child: Container(
-              child: Center(child: Text('Female')),
+            child: InkWell(
+              onTap: (){
+                onGenderTap('Female');
+              },
+              child: Container(
+                color: genderValue=='Female'? bgNewColor : Colors.white,
+                child: Center(child: Text('Female')),
+              ),
             ),
           ),
           VerticalDivider(
@@ -25,8 +33,14 @@ class GenderButton extends StatelessWidget {
           ),
           Flexible(
             flex: 1,
-            child: Container(
-              child: Center(child: Text('Male')),
+            child: InkWell(
+              onTap: () {
+                onGenderTap('Male');
+              },
+              child: Container(
+                color: genderValue=='Female'? bgNewColor : Colors.white,
+                child: Center(child: Text('Male')),
+              ),
             ),
           )
         ],

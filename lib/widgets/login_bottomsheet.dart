@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopping_app/constants/constants.dart';
 import 'package:shopping_app/controllers/login_controller.dart';
+import 'package:shopping_app/controllers/register_controller.dart';
 import 'package:shopping_app/widgets/solid_button.dart';
 
 class LoginBottomSheet extends StatelessWidget {

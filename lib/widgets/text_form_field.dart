@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 
 class TextFormFieldNew extends StatelessWidget {
-  const TextFormFieldNew({Key? key, required this.labelText,  this.validator, this.prefixIcon}) : super(key: key);
+  const TextFormFieldNew({Key? key, required this.labelText,  this.validator, this.prefixIcon, this.textEditingController}) : super(key: key);
   final String labelText;
   final String? Function(String? value)? validator;
   final Widget? prefixIcon;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
         //controller: loginController.loginEditingController,
+        controller: textEditingController,
         keyboardType: TextInputType.number,
         style: TextStyle(
           color: Colors.black,
