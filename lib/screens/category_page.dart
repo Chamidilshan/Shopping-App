@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/screens/register.dart';
 import 'package:shopping_app/widgets/login_bottomsheet.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -13,7 +14,7 @@ class _CategoryPageState extends State<CategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-
+        child: Register(),
       ),
     );
   }
