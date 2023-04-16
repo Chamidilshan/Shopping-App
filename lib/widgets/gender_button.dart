@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/constants/constants.dart';
 
 class GenderButton extends StatelessWidget {
-  const GenderButton({Key? key, required this.onGenderTap, required this.genderValue}) : super(key: key);
+  GenderButton({Key? key, required this.onGenderTap, required this.genderValue}) : super(key: key);
   final Function(String value) onGenderTap;
   final String genderValue;
+  final TextStyle activeStyle =  TextStyle(color: Colors.white);
+  final TextStyle normalStyle = TextStyle(color: Colors.black54);
+
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       height: 46.0,
       decoration: BoxDecoration(
@@ -22,8 +26,8 @@ class GenderButton extends StatelessWidget {
                 onGenderTap('Female');
               },
               child: Container(
-                color: genderValue=='Female'? bgNewColor : Colors.white,
-                child: Center(child: Text('Female')),
+                color: genderValue=='Female'? Colors.pinkAccent : Colors.white,
+                child: Center(child: Text('Female', style: genderValue=='Female'? activeStyle: normalStyle ,)),
               ),
             ),
           ),
@@ -38,8 +42,8 @@ class GenderButton extends StatelessWidget {
                 onGenderTap('Male');
               },
               child: Container(
-                color: genderValue=='Female'? bgNewColor : Colors.white,
-                child: Center(child: Text('Male')),
+                color: genderValue=='Male'? Colors.pinkAccent : Colors.white,
+                child: Center(child: Text('Male', style: genderValue=='Male'? activeStyle : normalStyle,)),
               ),
             ),
           )
