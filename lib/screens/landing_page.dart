@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopping_app/controllers/landing_page_controller.dart';
 import 'package:shopping_app/screens/category_page.dart';
 import 'package:shopping_app/screens/home_page.dart';
 import 'package:shopping_app/screens/profile_page.dart';
@@ -13,6 +15,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   int currentIndex = 0;
   int indexNew = 0;
+  var landingPageController = Get.put(LandingPageController());
   List<Widget> pages = [HomePage(),CategoryPage(), ProfilePage()];
 
   @override

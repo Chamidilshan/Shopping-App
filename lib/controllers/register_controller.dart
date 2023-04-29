@@ -6,7 +6,7 @@ import 'package:shopping_app/models/register_model.dart';
 import 'package:shopping_app/controllers/login_controller.dart';
 import 'package:shopping_app/screens/landing_page.dart';
 
-import '../services/netwoek_handler.dart';
+import '../services/network_handler.dart';
 
 class RegisterController extends GetxController{
   TextEditingController passwordTextController = TextEditingController();

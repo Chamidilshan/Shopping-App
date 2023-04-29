@@ -12,6 +12,14 @@ class NetworkHandler{
     return response.body;
   }
 
+  static Future<dynamic> get(String endpoint, String? token) async{
+    var response = await client.get(buildUrl(endpoint), headers: {
+      "Content-type":"application/json",
+      "authorization":"Bearer $token"
+    });
+    return response.body;
+  }
+
   static Uri buildUrl(String endpoint){
     String host = "http://localhost:3005/";
     final apiPath = host + endpoint;
@@ -22,7 +30,7 @@ class NetworkHandler{
     await storage.write(key: "token", value: token);
   }
 
-  static Future<String?> getToken(String token) async{
+  static Future<String?> getToken() async{
     return await storage.read(key: "token");
   }
 }
