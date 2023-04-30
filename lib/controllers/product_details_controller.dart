@@ -11,18 +11,20 @@ class ProductDetailsController extends GetxController{
 
   @override
   void onInit(){
-    super.onInit();
     getProductDetails();
+    super.onInit();
+
   }
 
-  void getProductDetails() async {
-    try {
-      var response = await NetworkHandler.get('product-details/getAll', "");
-      var data = json.decode(response);
-      print(data);
-    } catch (error) {
-      print('Error occurred: $error');
-    }
+ getProductDetails() async{
+    isLoading(true);
+      var response = await NetworkHandler.get("/product-details/getAll", "");
+      // var data = jsonDecode(response);
+      // print(data);
+      ProductDetailsModel productDetailsModel = ProductDetailsModel.fromJson(jsonDecode(response));
+      print(productDetailsModel.data);
+      productList = productDetailsModel.data;
+      isLoading(false);
   }
 
 }

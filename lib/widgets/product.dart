@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shopping_app/controllers/product_details_controller.dart';
+import 'package:shopping_app/screens/product_card_page.dart';
 
 class Product extends StatelessWidget {
 
@@ -53,12 +54,13 @@ class Product extends StatelessWidget {
           )
         ],
       ),
-      body: ListView.builder(
-        itemCount: 0,
+      body: Obx(() => productDetailsController.isLoading.value ?
+      Center(child: CircularProgressIndicator(color: Colors.pinkAccent,)) : ListView.builder(
+        itemCount: productDetailsController.productList.length,
         itemBuilder: (context, index) {
-          return Text('Data');
+          return ProductCard();
         },
-      ),
+      ),)
     );
   }
 }
