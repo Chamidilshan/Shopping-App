@@ -13,11 +13,11 @@ class LandingPageController extends GetxController{
   }
 
   void checkLogin() async{
-    var scopedtToken = await NetworkHandler.getToken();
-    if(scopedtToken!=null){
-      token?.value = scopedtToken;
+    var scopedToken = await NetworkHandler.getToken();
+    if(scopedToken!=null){
+      token?.value = scopedToken;
       loggedIn.value = true;
-      var response = await NetworkHandler.get("user-details", scopedtToken);
+      var response = await NetworkHandler.get("user-details", scopedToken);
       print(response);
     }
   }
